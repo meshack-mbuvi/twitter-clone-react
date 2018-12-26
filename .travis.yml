@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+    - "stable"
+cache:
+    directories:
+        - "node_modules"
+services:
+    - postgresql
+
+before_script:
+    - psql -c "CREATE DATABASE test;" -U postgres
+script:
+    - npm install
+    - cd server && npm install
+    - npm test
+    - cd ../client && npm install
+    - npm test

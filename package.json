@@ -1,0 +1,28 @@
+{
+    "name": "twitter-clone-react",
+    "version": "1.0.0",
+    "description": "This project creates a clone of twitter using PREN stack with TypeScript We will be using [Sequelize](http://docs.sequelizejs.com) for the database management.",
+    "main": "index.js",
+    "scripts": {
+        "test": "cd client && npm test",
+        "client": "cd client && npm start",
+        "server": "cd server && npm start",
+        "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/meshack-mbuvi/twitter-clone-react.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/meshack-mbuvi/twitter-clone-react/issues"
+    },
+    "homepage": "https://github.com/meshack-mbuvi/twitter-clone-react#readme",
+    "devDependencies": {
+        "concurrently": "^4.0.1",
+        "coveralls": "^3.0.2",
+        "nodemon": "^1.18.9",
+        "redux-devtools-extension": "^2.13.7"
+    }
+}

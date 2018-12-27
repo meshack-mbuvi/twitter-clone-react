@@ -5,6 +5,16 @@
 This project creates a clone of twitter using PREN stack with TypeScript
 We will be using [Sequelize](http://docs.sequelizejs.com) for the database management.
 
+# Tech
+
+React - A JavaScript library for building user interfaces
+Redux - A predictable state container for JavaScript apps.
+Typescript - A typed superset of JavaScript that compiles to plain JavaScript.
+Bootstrap - An open source toolkit for developing with HTML, CSS, and JS.
+React-router-v4 - Declarative routing for React
+Jest - A JavaScript testing solution
+Enzyme - A JavaScript Testing utility for React
+
 # Structure
 
 The project will have two main folders:
@@ -18,6 +28,7 @@ clone this repository and :
 `$npm install`
 `$cd client && npm install`
 `$cd server && npm install`
+Run the application by: `npm start` from the root directory
 
 # Payload
 
@@ -42,3 +53,7 @@ clone this repository and :
 
 }
 ```
+
+#### Authors
+
+-   Meshack Mbuvi

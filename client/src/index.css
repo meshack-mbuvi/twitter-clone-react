@@ -1,0 +1,146 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: #E6ECF0;
+}
+
+.left {
+    background-color: #1da1f2;
+    height: 100vh;
+}
+
+.login {
+    height: 100vh;
+    margin: 0;
+    display: block
+}
+
+.home {
+    min-height: 100% !important;
+    overflow: hidden;
+    margin: 0
+}
+
+.content {
+    display: block;
+    position: relative
+}
+
+.center-block {
+    color: #fff;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 24px;
+    margin: 48px auto;
+    margin-left: 22%;
+    position: relative
+}
+
+input {
+    font-size: 14px;
+    display: inline-block;
+    width: 210px;
+    padding: 6px;
+    margin: 0;
+    outline: 0;
+    background-color: #fff;
+    border: 1px solid #e6ecf0;
+    border-radius: 3px;
+    box-sizing: border-box;
+    margin-top: 12px;
+}
+
+.btn-rounded {
+    background-color: #fff;
+    color: #1da1f2 !important;
+    border-radius: 100px !important;
+    box-shadow: none;
+    cursor: pointer;
+    font-weight: normal;
+    padding: 6px 16px;
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+    border: 1px solid #1da1f2;
+}
+
+.signup-info {
+    color: black;
+    font-size: 27px;
+    line-height: 32px;
+    margin-left: 22%
+}
+
+.joinus {
+    font-size: 18px !important;
+    color: black !important;
+}
+
+.btn-primary {
+    background-color: #1da1f2 !important;
+    color: #fff !important;
+}
+
+.btn {
+    border: 1px solid !important;
+}
+
+.text-input {
+    background: #adc6db;
+    background-color: #F5F8FA;
+}
+
+.modal {
+    margin-top: 50px;
+}
+
+.navbar {
+    border-bottom: 1px solid #DAE0E4;
+    background: #fff;
+    height: 50px;
+    padding: 2px;
+}
+
+.img-profile,
+.card-img {
+    width: 50px !important;
+    length: 50px !important;
+    border-radius: 50%;
+    cursor: pointer !important;
+}
+
+.card-link {
+    color: black;
+}
+
+.card-link:hover {
+    text-decoration: underline
+}
+
+.text-muted:hover {
+    text-decoration: none;
+}
+
+.tweet {
+    width: 100px !important;
+    margin-right: 100px !important;
+}
+
+.btn-primary,
+.btn-primary:hover {
+    background-color: #91D2FA !important;
+    border: none;
+}
+
+.rounded-0 {
+    border-radius: 4px !important;
+    border: 1px solid #91D2FA;
+}
+
+.fa {
+    margin-right: 4px !important;
+}

@@ -1,0 +1,62 @@
+{
+    "name": "twitter-clone-react",
+    "version": "1.0.0",
+    "description": "This project creates a clone of twitter using PREN stack with TypeScript We will be using [Sequelize](http://docs.sequelizejs.com) for the database management.",
+    "main": "index.js",
+    "scripts": {
+        "test": "cd client && npm test",
+        "client": "cd client && nodemon start",
+        "server": "cd server && npm start",
+        "heroku-postbuild": "npm --prefix server run installDep && npm --prefix client run installDep",
+        "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/meshack-mbuvi/twitter-clone-react.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/meshack-mbuvi/twitter-clone-react/issues"
+    },
+    "homepage": "https://github.com/meshack-mbuvi/twitter-clone-react#readme",
+    "devDependencies": {
+        "@types/cors": "^2.8.4",
+        "concurrently": "^4.0.1",
+        "nodemon": "^1.18.9",
+        "react": "^16.7.0",
+        "react-dom": "^16.7.0",
+        "react-scripts": "^2.1.2",
+        "sequelize-cli": "^5.4.0",
+        "@babel/plugin-proposal-class-properties": "^7.2.3",
+        "@babel/plugin-proposal-object-rest-spread": "^7.2.0",
+        "@babel/preset-env": "^7.2.3",
+        "@babel/preset-typescript": "^7.1.0",
+        "coveralls": "^3.0.2",
+        "redux-devtools-extension": "^2.13.7",
+        "ts-node": "^7.0.1",
+        "typescript": "^3.2.2"
+    },
+    "dependencies": {
+        "@babel/plugin-proposal-class-properties": "^7.2.3",
+        "@babel/plugin-proposal-object-rest-spread": "^7.2.0",
+        "@babel/preset-env": "^7.2.3",
+        "@babel/preset-typescript": "^7.1.0",
+        "@types/cors": "^2.8.4",
+        "concurrently": "^4.0.1",
+        "coveralls": "^3.0.2",
+        "jquery": "^3.3.1",
+        "nodemon": "^1.18.9",
+        "popper.js": "^1.14.6",
+        "react": "^16.7.0",
+        "react-dom": "^16.7.0",
+        "react-scripts": "^2.1.2",
+        "redux-devtools-extension": "^2.13.7",
+        "sequelize-cli": "^5.4.0",
+        "ts-node": "^7.0.1",
+        "typescript": "^3.2.2"
+    },
+    "engines": {
+        "node": "8.x"
+    }
+}

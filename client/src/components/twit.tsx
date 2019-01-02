@@ -24,7 +24,6 @@ export const Twit: React.SFC<IProps> = ({
 }) => {
   TimeAgo.addLocale(en);
   const timeAgo = new TimeAgo("en-US");
-  console.log(createdAt);
   return (
     <div className="card">
       <div className="card-body row">

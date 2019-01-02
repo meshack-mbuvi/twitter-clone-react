@@ -19,9 +19,6 @@ export class Tweets extends React.Component<IProps> {
     return (
       <div>
         <div className="row">
-          <div className="col-md-12 mt-4">Header here</div>
-        </div>
-        <div className="row">
           <div className="col-md-12 m-2">
             {twits.map((tweet, index) => {
               return (

@@ -36,6 +36,8 @@ export const Login = (userData: any) => async (dispatch: any) => {
     });
 
     localStorage.setItem("token", res.data.user.token);
+
+    return document.location.reload(true);
   } catch (error) {
     return toaster.danger(error.response.data.message, { duration: 5 });
   }
@@ -46,7 +48,6 @@ export const GetUserProfileData = () => async dispatch => {
     const res = await client.get("/user");
     dispatch(SetUserProfile(res.data));
   } catch (error) {
-    console.log("err", error.response);
     return toaster.danger(error.response.data.message, { duration: 5 });
   }
 };

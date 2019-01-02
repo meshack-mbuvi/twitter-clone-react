@@ -4,7 +4,7 @@ interface IProps {
   username: string;
   bio?: string;
   name: string;
-  joined: Date;
+  joined?: Date;
 }
 export const ProfileData: React.SFC<IProps> = ({
   username,
@@ -35,16 +35,16 @@ export const ProfileData: React.SFC<IProps> = ({
           </a>
         </h4>
         <h6 className="card-subtitle mb-2 text-muted">@{username}</h6>
-        <p className="card-text">
-          Software Developer @Andela Am highly motivated, goal-oriented,a team
-          player, a hard worker, adaptable and self confident. I dream software.
-          {bio}
-        </p>
-        <div className="m-auto text-muted">
-          <span className="text-muted">
-            Joined {monthNames[joined.getMonth()]} {joined.getFullYear()}
-          </span>
-        </div>
+        <p className="card-text">{bio}</p>
+        {joined ? (
+          <div className="m-auto text-muted">
+            <span className="text-muted">
+              (Joined {monthNames[joined.getMonth()]} {joined.getFullYear()})
+            </span>{" "}
+          </div>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );

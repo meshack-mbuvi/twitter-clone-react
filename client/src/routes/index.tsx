@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from "./home";
 import Signup from "./signup";
 import Navbar from "./navbar";
+import Profile from "./profile";
 
 export class Index extends React.Component {
   public render() {
@@ -14,6 +15,7 @@ export class Index extends React.Component {
           <Navbar />
           <Route path="/" exact={true} component={Home} />
           <Route path="/signup" component={Signup} />
+          <Route path="/profile" component={Profile} />
         </div>
       </Router>
     );

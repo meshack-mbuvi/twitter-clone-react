@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 const User = require("../../models").User;
+User.sync();
 
 export class UserController {
   public async Save(req: Request, res: Response) {
@@ -14,7 +15,8 @@ export class UserController {
         name: user.name,
         password: passwordHash,
         email: user.email,
-        username: user.name.replace(/\s/g, "")
+        username: user.name.replace(/\s/g, ""),
+        bio: user.bio
       }).catch(error => {
         throw error;
       });
@@ -35,7 +37,7 @@ export class UserController {
     try {
       const user = await User.findOne({
         where: { id },
-        attributes: ["name", "username", "createdAt"]
+        attributes: ["id", "name", "username", "bio", "createdAt"]
       });
 
       if (!user) {

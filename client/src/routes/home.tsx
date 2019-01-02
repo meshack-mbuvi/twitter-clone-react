@@ -6,13 +6,18 @@ import { connect } from "react-redux";
 import { Modal } from "../components/modal";
 
 // Actions
-import { SignUp, Login } from "../actions/auth";
+import { SignUp, Login, GetUserProfileData } from "../actions/auth";
+
+// Components
 import Tweets from "./tweets";
-import Profile from "./profile";
+import { ProfileData } from "../components/user.prof";
+import { UserStats } from "../components/user.stats";
+import { AllTwits } from "../actions/twits";
 
 interface IProps {
   history?: any;
   user?: any;
+  twits?: any;
   dispatch?: any;
 }
 export class Home extends React.Component<IProps> {
@@ -21,6 +26,15 @@ export class Home extends React.Component<IProps> {
     email: "",
     password: "",
     cPassword: ""
+  };
+
+  public componentWillMount = () => {
+    const authToken = localStorage.getItem("token");
+    if (authToken) {
+      const { dispatch } = this.props;
+      dispatch(GetUserProfileData());
+      dispatch(AllTwits());
+    }
   };
 
   public handleSubmit = (e: any) => {
@@ -42,17 +56,39 @@ export class Home extends React.Component<IProps> {
   };
   public render() {
     const authToken = localStorage.getItem("token");
+    const { user } = this.props;
     if (authToken) {
       return (
         <div className="container mt-2">
           <div className="row">
             <div className="col-sm-3 col-md-3">
-              <Profile />
+              <div className="row card">
+                <div className="col-md-12">
+                  <div className="row">
+                    <div className="col-md-2">
+                      <img
+                        src="https://picsum.photos/50/50"
+                        className="card-img mt-4"
+                      />
+                    </div>
+                    <div className="col-md-10 statProf">
+                      <ProfileData name={user.name} username={user.username} />
+                    </div>
+                  </div>
+                </div>
+                <div className="col-md-12">
+                  <UserStats
+                    twitsCount={30}
+                    followsCount={20}
+                    followersCount={1000}
+                  />
+                </div>
+              </div>
             </div>
             <div className="col-sm-6 col-md-6">
               <Tweets />
             </div>
-            <div className="col-sm-3 col-md-3">Who to follow</div>
+            <div className="col-sm-3 col-md-3" />
           </div>
         </div>
       );
@@ -194,9 +230,10 @@ export class Home extends React.Component<IProps> {
   }
 }
 
-const mapStateToProps = ({ userReducer }) => {
+const mapStateToProps = ({ userReducer, twitReducer }) => {
   return {
-    user: userReducer || []
+    user: userReducer.profile || [],
+    twits: twitReducer.twits || []
   };
 };
 

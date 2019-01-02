@@ -1,5 +1,8 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
+import { toaster } from "evergreen-ui";
+
+// components
 import { Button } from "../components/button";
 import { connect } from "react-redux";
 import { Modal } from "../components/modal";
@@ -27,6 +30,16 @@ export class Navbar extends React.Component<IProps> {
   public handleChange = e => {
     this.setState({ [e.target.id]: e.target.value });
   };
+
+  public handleLogout = () => {
+    try {
+      window.localStorage.setItem("token", "");
+      return document.location.reload(true);
+    } catch (error) {
+      return toaster.danger("An error occurred while logging out");
+    }
+  };
+
   public render() {
     const authToken = localStorage.getItem("token");
     return (
@@ -69,12 +82,18 @@ export class Navbar extends React.Component<IProps> {
                   className="dropdown-menu"
                   aria-labelledby="navbarDropdownMenuLink"
                 >
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item" href="/profile">
                     Profile
                   </a>
                   <a className="dropdown-item" href="#">
                     Setting
                   </a>
+                  <button
+                    className="dropdown-item"
+                    onClick={() => this.handleLogout()}
+                  >
+                    Logout
+                  </button>
                 </div>
               </li>
             </ul>

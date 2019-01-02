@@ -9,7 +9,7 @@ export class TweetController {
       const Tweets = await Twit.findAll({
         attributes: ["id", "text", "createdAt"],
         include: [
-          { model: User, as: "author", attributes: ["name", "username"] }
+          { model: User, as: "author", attributes: ["id", "name", "username"] }
         ],
         order: [["createdAt", "DESC"]]
       });

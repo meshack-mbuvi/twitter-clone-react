@@ -4,6 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     'Twit',
     {
       text: DataTypes.STRING,
+      bio: DataTypes.STRING,
     },
     {}
   );
@@ -19,10 +20,6 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'user_id',
       as: 'author',
     });
-
-    // Twit.hasMany (models.User, {
-    //   as: 'likes',
-    // });
   };
   return Twit;
 };

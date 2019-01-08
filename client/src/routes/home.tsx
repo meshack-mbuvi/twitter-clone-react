@@ -56,8 +56,13 @@ export class Home extends React.Component<IProps> {
   };
   public render() {
     const authToken = localStorage.getItem("token");
-    const { user } = this.props;
+    const { user, twits } = this.props;
     if (authToken) {
+      const clientTwits = twits.length
+        ? twits.filter(t => {
+            return t.author.id === user.id;
+          })
+        : [];
       return (
         <div className="container mt-2">
           <div className="row">
@@ -77,11 +82,15 @@ export class Home extends React.Component<IProps> {
                   </div>
                 </div>
                 <div className="col-md-12">
-                  <UserStats
-                    twitsCount={30}
-                    followsCount={20}
-                    followersCount={1000}
-                  />
+                  {clientTwits.length ? (
+                    <UserStats
+                      twitsCount={clientTwits.length}
+                      followsCount={20}
+                      followersCount={1000}
+                    />
+                  ) : (
+                    ""
+                  )}
                 </div>
               </div>
             </div>

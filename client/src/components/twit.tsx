@@ -2,6 +2,8 @@ import * as React from "react";
 import TimeAgo from "javascript-time-ago";
 import en from "javascript-time-ago/locale/en";
 
+import { Button } from "../components/button";
+
 interface IProps {
   author: any;
   username?: string;
@@ -32,18 +34,37 @@ export const Twit: React.SFC<IProps> = ({
         </div>
 
         <div className="col-md-10 ml-4  mr-0">
-          <h6 className="card-title">
-            <a href="#" className="card-link">
-              {author.name}
-            </a>
-            <a href="#" className="card-link text-muted">
-              @{author.username}
-            </a>
-            {" . "}
-            <span className="text-muted">
-              {timeAgo.format(new Date(createdAt), "twitter")}
+          <div className="card-title d-flex justify-content-between">
+            <h6 className="">
+              <a href={author.username} className="card-link">
+                {author.name}
+              </a>
+              <a href={author.username} className="card-link text-muted">
+                @{author.username}
+              </a>
+              {" . "}
+              <span className="text-muted">
+                {timeAgo.format(new Date(createdAt), "twitter")}
+              </span>
+            </h6>
+
+            <span className="dropdown ml-4 mr-0">
+              <span className="caret dropdown-toggle" data-toggle="dropdown" />
+              <div
+                className="dropdown-menu"
+                style={{ border: "1px solid green" }}
+              >
+                <Button
+                  className="dropdown-item nav-link btn-primary mr-4"
+                  value="Follow"
+                />
+                <Button
+                  className="dropdown-item nav-link mr-4"
+                  value="Comment"
+                />
+              </div>
             </span>
-          </h6>
+          </div>
 
           <p className="card-text">{twitText}</p>
           <div className="col-sm-8 bg-transparent d-flex justify-content-between m-auto">

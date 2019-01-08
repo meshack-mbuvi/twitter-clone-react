@@ -1,15 +1,23 @@
 import { Request, Response } from "express";
 
-const Twit = require("../../models").Twit;
-const User = require("../../models").User;
-
 export class TweetController {
-  public async All(req: Request, res: Response) {
+  Twit = require("../../models").Twit;
+  User = require("../../models").User;
+
+  TweetController() {
+    this.Twit.sync();
+  }
+
+  async All(req: Request, res: Response) {
     try {
-      const Tweets = await Twit.findAll({
+      const Tweets = await this.Twit.findAll({
         attributes: ["id", "text", "createdAt"],
         include: [
-          { model: User, as: "author", attributes: ["id", "name", "username"] }
+          {
+            model: this.User,
+            as: "author",
+            attributes: ["id", "name", "username"]
+          }
         ],
         order: [["createdAt", "DESC"]]
       });
@@ -19,7 +27,7 @@ export class TweetController {
     }
   }
 
-  public async Save(req: Request, res: Response) {
+  async NewTwit(req: Request, res: Response) {
     try {
       const authorId = req["user"].id;
       const text = req.body.text.trim();
@@ -28,7 +36,7 @@ export class TweetController {
         return res.status(400).send({ message: "A tweet must have a body" });
       }
 
-      const Tweet = await Twit.create({
+      const Tweet = await this.Twit.create({
         text,
         user_id: authorId
       });

@@ -1,5 +1,6 @@
 import { UserController } from "../controllers/user";
 import { TweetController } from "../controllers/tweet";
+import { MessageController } from "../controllers/message";
 
 export const Routes = [
   {
@@ -30,12 +31,24 @@ export const Routes = [
     method: "post",
     route: "/api/tweets",
     controller: TweetController,
-    action: "Save"
+    action: "NewTwit"
   },
   {
     method: "get",
     route: "/api/tweets",
     controller: TweetController,
+    action: "All"
+  },
+  {
+    method: "post",
+    route: "/api/messages",
+    controller: MessageController,
+    action: "NewMessage"
+  },
+  {
+    method: "get",
+    route: "/api/messages",
+    controller: MessageController,
     action: "All"
   }
 ];

@@ -8,9 +8,11 @@ import { connect } from "react-redux";
 import { Modal } from "../components/modal";
 import { Form } from "../components/form";
 import { TextArea } from "../components/textArea";
+import Messages from "./messages";
 
 //  Actions
 import { Newtwit } from "../actions/twits";
+import { getAllMessages } from "../actions/messages";
 
 interface IProps {
   user?: any;
@@ -42,6 +44,7 @@ export class Navbar extends React.Component<IProps> {
 
   public render() {
     const authToken = localStorage.getItem("token");
+    const { dispatch } = this.props;
     return (
       <div>
         {authToken ? (
@@ -60,7 +63,13 @@ export class Navbar extends React.Component<IProps> {
                 </Link>
               </li>
               <li className="nav-item nav-link">
-                <Link to="/messages" className="nav-item nav-link">
+                <Link
+                  to="/messages"
+                  className="nav-item nav-link"
+                  data-toggle="modal"
+                  data-target="#messages"
+                  onClick={e => dispatch(getAllMessages())}
+                >
                   <i className="fa fa-envelope-o" />
                   Messages
                 </Link>
@@ -138,6 +147,43 @@ export class Navbar extends React.Component<IProps> {
                 </div>
               </Form>
             </Modal>
+
+            {/* messages */}
+            <div
+              className="modal fade"
+              role="dialog"
+              id="messages"
+              aria-hidden="true"
+              tabIndex={-1}
+            >
+              <div className="modal-dialog modal-lg" role="document">
+                <div className="modal-content">
+                  <div className="title d-flex justify-content-between">
+                    <h5 className="modal-title  d-flex">
+                      <span className="mr-auto">Direct messages </span>
+                    </h5>
+                    <div>
+                      <Button
+                        type="submit"
+                        value="New Message"
+                        className="btn-rounded btn-primary"
+                      />
+                    </div>
+
+                    <button
+                      type="button"
+                      className="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+
+                  <Messages />
+                </div>
+              </div>
+            </div>
           </nav>
         ) : (
           ""

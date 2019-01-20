@@ -168,3 +168,17 @@ a:hover,
     text-decoration: underline;
     color: black
 }
+
+.message-body {
+    padding-right: 0px !important;
+    margin-right: 0px !important
+}
+
+.title {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125)
+}
+
+.card-normal {
+    height: 100px !important
+}

@@ -14,7 +14,6 @@ export class Tweets extends React.Component<IProps> {
   }
   public render() {
     const { twits } = this.props;
-    console.log(twits);
 
     return (
       <div>

@@ -11,6 +11,15 @@ module.exports = {
       text: {
         type: Sequelize.STRING,
       },
+      to_user: {
+        type: Sequelize.INTEGER,
+      },
+      from_user: {
+        type: Sequelize.INTEGER,
+      },
+      responses: {
+        type: Sequelize.JSON,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

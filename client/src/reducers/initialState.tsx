@@ -4,5 +4,6 @@ export const initialState = {
     following: [],
     profile: {}
   },
-  twits: []
+  twits: [],
+  messages: []
 };

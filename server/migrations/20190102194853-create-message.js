@@ -11,6 +11,12 @@ module.exports = {
       text: {
         type: Sequelize.STRING,
       },
+      to_user: {
+        type: Sequelize.INTEGER,
+      },
+      from_user: {
+        type: Sequelize.INTEGER,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

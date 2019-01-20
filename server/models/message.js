@@ -12,18 +12,28 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         defaultValue: false,
       },
+      to_user: {
+        type: DataTypes.INTEGER,
+      },
+      from_user: {
+        type: DataTypes.INTEGER,
+      },
     },
     {}
   );
 
   Message.associate = function (models) {
     Message.belongsTo (models.User, {
-      foreignKey: 'user_id',
+      foreignKey: 'from_user',
+      onDelete: 'CASCADE',
+      onUpdate: 'CASCADE',
       as: 'from',
     });
 
     Message.belongsTo (models.User, {
-      foreignKey: 'to',
+      foreignKey: 'to_user',
+      onDelete: 'CASCADE',
+      onUpdate: 'CASCADE',
       as: 'receiver',
     });
   };

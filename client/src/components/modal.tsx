@@ -1,7 +1,7 @@
 import * as React from "react";
 
 interface IProps {
-  title?: string;
+  title?: any;
   tabindex?: string;
   id?: string;
   footer?: boolean;

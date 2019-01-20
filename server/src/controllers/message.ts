@@ -1,13 +1,13 @@
 import { Request, Response } from "express";
 const Message = require("../../models").Message;
 const User = require("../../models").User;
-
 Message.sync();
+
 export class MessageController {
   public async NewMessage(req: Request, res: Response) {
-    const { to, text } = req.body;
+    const { to_user, text } = req.body;
     const authorId = req["user"].id;
-    if (authorId == to) {
+    if (authorId == to_user) {
       return res.status(400).send({
         message: "You cannot send a message to yourself"
       });
@@ -15,9 +15,9 @@ export class MessageController {
 
     try {
       const message = await Message.create({
-        to,
+        to_user,
         text,
-        user_id: authorId,
+        from_user: authorId,
         read: false
       });
       return res.status(201).send(message);
